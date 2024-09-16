@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{e1a68369-e3a3-4eec-88c9-f04d67c87c45}</ProjectGuid>
+    <RootNamespace>OpenGL2</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)Dependencies\SDL\include;$(SolutionDir)Dependencies\GLM;$(SolutionDir)OpenGL2\Project\include;$(SolutionDir)\OpenGL2\Project\include;$(SolutionDir)\OpenGL2\Project\include\vendor\glad\include;$(SolutionDir)\OpenGL2\Project\include\vendor\glad\src;$(SolutionDir)\OpenGL2\Project\include\vendor\imGUI</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\SDL\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(SolutionDir)Dependencies\SDL\include;$(SolutionDir)Dependencies\GLM;$(SolutionDir)OpenGL2\Project\include;$(SolutionDir)\OpenGL2\Project\include;$(SolutionDir)\OpenGL2\Project\include\vendor\glad\include;$(SolutionDir)\OpenGL2\Project\include\vendor\glad\src;$(SolutionDir)\OpenGL2\Project\include\vendor\imGUI</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\SDL\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(SolutionDir)Dependencies\SDL\include;$(SolutionDir)Dependencies\GLM;$(SolutionDir)OpenGL2\Project\include;$(SolutionDir)\OpenGL2\Project\include;$(SolutionDir)\OpenGL2\Project\include\glad\include;$(SolutionDir)\OpenGL2\Project\include\glad\src</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\SDL\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)Dependencies\SDL\include;$(SolutionDir)Dependencies\GLM;$(SolutionDir)OpenGL2\Project\include;$(SolutionDir)\OpenGL2\Project\include;$(SolutionDir)\OpenGL2\Project\include\glad\include;$(SolutionDir)\OpenGL2\Project\include\glad\src</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\SDL\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;IMGUI_IMPL_OPENGL_LOADER_CUSTOM;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\SDL\include;$(SolutionDir)Dependencies\GLM;$(SolutionDir)\OpenGL2\Project\include\vendor\glad\include;$(SolutionDir)\OpenGL2\Project\include\vendor\imGUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;Shell32.lib;opengl32.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;IMGUI_IMPL_OPENGL_LOADER_CUSTOM;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\SDL\include;$(SolutionDir)Dependencies\GLM;$(SolutionDir)\OpenGL2\Project\include\vendor\glad\include;$(SolutionDir)\OpenGL2\Project\include\vendor\imGUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;Shell32.lib;opengl32.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>
+      </PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\SDL\include;$(SolutionDir)Dependencies\GLM;$(SolutionDir)\OpenGL2\Project\include\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;Shell32.lib;opengl32.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>
+      </PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\SDL\include;$(SolutionDir)Dependencies\GLM;$(SolutionDir)\OpenGL2\Project\include\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;Shell32.lib;opengl32.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Project\source\Grid\Grid.cpp" />
+    <ClCompile Include="Project\source\Material\Material.cpp" />
+    <ClCompile Include="Project\source\Objects\Object.cpp" />
+    <ClCompile Include="Project\source\Shape\Model.cpp" />
+    <ClCompile Include="Project\source\UI\UI.cpp" />
+    <ClCompile Include="Project\source\Utility\Utility.cpp" />
+    <ClCompile Include="Project\source\Shape\Cube.cpp" />
+    <ClCompile Include="Project\include\vendor\glad\src\gl.c" />
+    <ClCompile Include="Project\include\vendor\imGUI\imgui.cpp" />
+    <ClCompile Include="Project\include\vendor\imGUI\imgui_demo.cpp" />
+    <ClCompile Include="Project\include\vendor\imGUI\imgui_draw.cpp" />
+    <ClCompile Include="Project\include\vendor\imGUI\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="Project\include\vendor\imGUI\imgui_impl_sdl.cpp" />
+    <ClCompile Include="Project\include\vendor\imGUI\imgui_tables.cpp" />
+    <ClCompile Include="Project\include\vendor\imGUI\imgui_widgets.cpp" />
+    <ClCompile Include="Project\source\Buffer\Buffer.cpp" />
+    <ClCompile Include="Project\source\Camera\Camera.cpp" />
+    <ClCompile Include="Project\source\InputSystem\Input.cpp" />
+    <ClCompile Include="Project\source\Light\Light.cpp" />
+    <ClCompile Include="Project\source\main.cpp" />
+    <ClCompile Include="Project\source\Shape\Quad.cpp" />
+    <ClCompile Include="Project\source\Screen\Screen.cpp" />
+    <ClCompile Include="Project\source\Shader\Shader.cpp" />
+    <ClCompile Include="Project\source\Texture\Texture.cpp" />
+    <ClCompile Include="Project\source\Transform\Transform.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Project\include\Grid\Grid.h" />
+    <ClInclude Include="Project\include\Material\Material.h" />
+    <ClInclude Include="Project\include\Shape\Cube.h" />
+    <ClInclude Include="Project\include\Buffer\Buffer.h" />
+    <ClInclude Include="Project\include\Camera\Camera.h" />
+    <ClInclude Include="Project\include\Shape\Model.h" />
+    <ClInclude Include="Project\include\UI\UI.h" />
+    <ClInclude Include="Project\include\vendor\glad\include\glad\gl.h" />
+    <ClInclude Include="Project\include\vendor\glad\include\KHR\khrplatform.h" />
+    <ClInclude Include="Project\include\InputSystem\Input.h" />
+    <ClInclude Include="Project\include\vendor\KhronosOpenGL\khrplatform.h" />
+    <ClInclude Include="Project\include\Light\Light.h" />
+    <ClInclude Include="Project\include\Shape\Quad.h" />
+    <ClInclude Include="Project\include\Screen\Screen.h" />
+    <ClInclude Include="Project\include\Shader\Shader.h" />
+    <ClInclude Include="Project\include\Texture\Texture.h" />
+    <ClInclude Include="Project\include\vendor\imGUI\imconfig.h" />
+    <ClInclude Include="Project\include\vendor\imGUI\imgui.h" />
+    <ClInclude Include="Project\include\vendor\imGUI\imgui_impl_opengl3.h" />
+    <ClInclude Include="Project\include\vendor\imGUI\imgui_impl_sdl.h" />
+    <ClInclude Include="Project\include\vendor\imGUI\imgui_internal.h" />
+    <ClInclude Include="Project\include\vendor\imGUI\imstb_rectpack.h" />
+    <ClInclude Include="Project\include\vendor\imGUI\imstb_textedit.h" />
+    <ClInclude Include="Project\include\vendor\imGUI\imstb_truetype.h" />
+    <ClInclude Include="Project\include\Utility\Utility.h" />
+    <ClInclude Include="Project\include\Objects\Object.h" />
+    <ClInclude Include="Project\include\Transform\Transform.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
