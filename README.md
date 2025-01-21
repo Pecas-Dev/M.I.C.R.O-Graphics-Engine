@@ -172,15 +172,24 @@ void main()
 
 ```glsl
 Project Root
-├── Release                         // Contains the executable for running the graphics engine
-│   ├── OGL-P2                      // Main project folder
-│   │   ├── Assets                   // Stores shaders, models, textures, fonts, and materials
-│   │   │   ├── Models               // Stores `.obj` model files
-│   │   │   ├── Materials            // Stores `.mtl` material files
-│   │   │   ├── Textures             // Stores texture files (`.jpg` or `.png`)
-│   │   ├── Project                   // Source code and include files
-│   │   │   ├── Buffer, Camera, Grid, Light, Material, Shader, Texture // Graphics components
-│   │   │   ├── UI, Utility           // UI management and utility functions
+├── Dependencies                 //External libraries like SDL and GLM required for rendering.
+├── OpenGL2
+│   ├── Assets                   // Stores shaders, models, textures, fonts, and materials.
+│   │   │   ├── Models               
+│   │   │   ├── Materials           
+│   │   │   ├── Textures             
+│   │   │   ├── Shaders
+│   │         
+│   ├── Project                  // Contains the source code for the M.I.C.R.O Graphics Engine.
+│   │   ├── include
+│   │   ├── source
+│      
+├── Release                      // Contains the executable for running the graphics engine
+│   ├── OGL-P2                   // Contains the necessary files to run the executable.
+│   │   ├── Assets                   
+│   │   │   ├── Models           // Store `.obj` model files HERE.
+│   │   │   ├── Materials        // Stores `.mtl` material files HERE.
+│   │   │   ├── Textures         // Stores texture files (`.jpg` or `.png`) HERE.
 ```
 
 
