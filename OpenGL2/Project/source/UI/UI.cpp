@@ -1,14 +1,17 @@
+#include <Utility/FileDialog.h>
+#include <Grid/Grid.h>
 #include <UI/UI.h>
 
 
-UI::UI(int screenWidth, int screenHeight, int consoleWindowHeight, int propertiesWindowWidth, std::deque<std::string>& messages, std::vector<std::unique_ptr<Model>>& models, bool& isLit)
+UI::UI(int screenWidth, int screenHeight, int consoleWindowHeight, int propertiesWindowWidth, std::deque<std::string>& messages, std::vector<std::unique_ptr<Model>>& models, bool& isLit, Grid* parentGrid)
     : m_screenWidth(screenWidth),
     m_screenHeight(screenHeight),
     m_consoleWindowHeight(consoleWindowHeight),
     m_propertiesWindowWidth(propertiesWindowWidth),
     m_messages(messages),
     m_models(models),
-    m_isLit(isLit)
+    m_isLit(isLit),
+    m_parentGrid(parentGrid)
 {
 }
 
@@ -99,7 +102,35 @@ void UI::RenderPropertiesWindow()
         m_models[0]->SetColor(color);
     }
 
+    ImGui::Text("");
+
     ImGui::Separator();
+    ImGui::Text("MODEL LOADER");
+    ImGui::Separator();
+
+    if (ImGui::Button("Load New Model"))
+    {
+        std::string filePath = FileDialog::OpenFile();
+
+        if (!filePath.empty())
+        {
+            m_models[0] = std::make_unique<Model>(m_parentGrid);
+
+            bool loaded = m_models[0]->Load(filePath);
+
+            if (!loaded)
+            {
+                Utility::AddMessage("Failed to load new model from: " + filePath);
+            }
+            else
+            {
+                Utility::AddMessage("Successfully loaded: " + filePath);
+
+                m_models[0]->GetTransform().SetIdentity();
+                m_models[0]->SetColor(glm::vec4(1.0f));
+            }
+        }
+    }
 
     ImGui::End();
 }

@@ -90,6 +90,9 @@
     <ClCompile Include="Project\source\UI\UI.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="Project\source\Utility\FileDialog.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Project\include\Buffer\Buffer.h">
@@ -171,6 +174,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Project\include\UI\UI.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\include\Utility\FileDialog.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

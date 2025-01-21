@@ -79,7 +79,7 @@ int main(int argc, char* argv[])
 	SDL_Rect sceneCollider = { 0, 0, SCREEN_WIDTH - PROPERTIES_WINDOW_WIDTH, SCREEN_HEIGHT - CONSOLE_WINDOW_HEIGHT };
 
 
-	UI ui(SCREEN_WIDTH, SCREEN_HEIGHT, CONSOLE_WINDOW_HEIGHT, PROPERTIES_WINDOW_WIDTH, messages, models, isLit);
+	UI ui(SCREEN_WIDTH, SCREEN_HEIGHT, CONSOLE_WINDOW_HEIGHT, PROPERTIES_WINDOW_WIDTH, messages, models, isLit, &grid);
 
 
 	while (isAppRunning)

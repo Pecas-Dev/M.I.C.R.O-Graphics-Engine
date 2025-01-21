@@ -15,12 +15,37 @@ The **M.I.C.R.O Graphics Engine**, or "My Input Controlled Real-Time Output Grap
 --------------------------------
 ## Features
 
-- **Model Loading**: Loads 3D models (.obj format) and allows real-time manipulation of their properties.
+- **Model Loading**: Loads 3D models (**.obj** format) and allows real-time manipulation of their properties.
 - **Lighting System**: Enables dynamic lighting, affecting object shading and appearance.
 - **Texture Control**: Activate or deactivate textures on the 3D models.
 - **UI Controls**: Dear ImGUI interface to modify object transformations (position, rotation, scale) and adjust lighting and texture properties.
+- **Model Loader**: A dedicated button in the UI allows users to load new models dynamically into the scene.
 
 --------------------------------
+
+# Loading a New Model
+
+To load a new model dynamically into the scene, follow these steps:
+
+1. From the Project's Root, browse to **Release -> OGL-P2 -> Assets**. Inside this folder you will find the following folders:
+
+    - Models
+    - Materials
+    - Textures
+
+2. Place the necessary files in the correct directories inside Assets:
+
+    - .**obj** files in **Assets/Models/**
+
+    - **.mtl** material files in **Assets/Materials/**
+
+    - **.jpg** or .png texture files in **Assets/Textures/**
+
+3. Once inside the program (Check [How To Run](https://github.com/Pecas-Dev/M.I.C.R.O-Graphics-Engine?tab=readme-ov-file#how-to-run)), click on the **Load New Model button.**
+
+4. Browse to **Release -> OGL-P2 -> Assets -> Models** and select your **.obj** file.
+
+5. The engine will automatically attempt to load the associated material and textures.
 
 ## Shaders
 
@@ -144,13 +169,20 @@ void main()
 
 
 ## Directory Structure
-- **Dependencies**: External libraries like SDL and GLM required for rendering.
-- **Release**: Contains the executable for running the graphics engine directly.
-- **OpenGL2**: The main project folder containing:
-    - **Assets**: Stores shaders, models, textures, fonts, and materials.
-    - **Project**: Divided into source and include folders, it contains the source code for the graphics engine, organized into:
-        - **Buffer, Camera, Grid, Light, Material, Shader, Texture**: Specialized folders for organizing core graphics components.
-        - **UI, Utility**: Contains UI management and utility functions, like parsing and message handling.
+
+```glsl
+Project Root
+├── Release                         // Contains the executable for running the graphics engine
+│   ├── OGL-P2                      // Main project folder
+│   │   ├── Assets                   // Stores shaders, models, textures, fonts, and materials
+│   │   │   ├── Models               // Stores `.obj` model files
+│   │   │   ├── Materials            // Stores `.mtl` material files
+│   │   │   ├── Textures             // Stores texture files (`.jpg` or `.png`)
+│   │   ├── Project                   // Source code and include files
+│   │   │   ├── Buffer, Camera, Grid, Light, Material, Shader, Texture // Graphics components
+│   │   │   ├── UI, Utility           // UI management and utility functions
+```
+
 
 ## How to Run
 
@@ -162,7 +194,6 @@ git clone https://github.com/Pecas-Dev/M.I.C.R.O-Graphics-Engine.git
 2. Navigate to the Release folder within the project directory. Inside, you will find an executable that allows you to run the app directly.
 
 3. If you prefer to build the project manually, open the solution in Visual Studio, choose the x86 Platform, and build the project.
-
 
 4. Once the program is running, you can manipulate 3D models and adjust properties like position, scale, rotation, lighting, and textures using the Dear ImGUI UI.
 

@@ -2,6 +2,7 @@
 
 #include <Utility/Utility.h>
 #include <Shape/Model.h>
+#include <Grid/Grid.h>
 
 #include <imgui.h>
 #include <imgui_impl_sdl.h>
@@ -19,7 +20,7 @@ class Model;
 class UI
 {
 public:
-	UI(int screenWidth, int screenHeight, int consoleWindowHeight, int propertiesWindowWidth, std::deque<std::string>& messages, std::vector<std::unique_ptr<Model>>& models, bool& isLit);
+	UI(int screenWidth, int screenHeight, int consoleWindowHeight, int propertiesWindowWidth, std::deque<std::string>& messages, std::vector<std::unique_ptr<Model>>& models, bool& isLit, Grid* parentGrid);
 
 	void RenderConsoleWindow();
 	void RenderPropertiesWindow();
@@ -34,4 +35,6 @@ private:
 	int m_propertiesWindowWidth;
 
 	bool& m_isLit;
+
+	Grid* m_parentGrid; 
 };
