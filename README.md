@@ -23,7 +23,11 @@ The **M.I.C.R.O Graphics Engine**, or "My Input Controlled Real-Time Output Grap
 
 --------------------------------
 
-# Loading a New Model
+ <br>
+
+--------------------------------
+
+## Loading a New Model
 
 To load a new model dynamically into the scene, follow these steps:
 
@@ -47,9 +51,14 @@ To load a new model dynamically into the scene, follow these steps:
 
 5. The engine will automatically attempt to load the associated material and textures.
 
+--------------------------------
+
+ <br>
+
+
 ## Shaders
 
-### Vertex Shader (Default)
+### <ins>Vertex Shader (Default)</ins>
 Handles the transformation of 3D coordinates and passes color data for rendering.
 
 ```glsl
@@ -68,7 +77,10 @@ void main()
 }
 ```
 
-### Fragment Shader (Default)
+ <br>
+
+
+### <ins>Fragment Shader (Default)</ins>
 Renders color and lighting information onto the object.
 
 ```glsl
@@ -82,7 +94,10 @@ void main()
 
 ```
 
-### Vertex Shader (Light)
+ <br>
+
+
+### <ins>Vertex Shader (Light)</ins>
 Handles the transformation of 3D coordinates for the light shader and normal calculations.
 
 ```glsl
@@ -115,7 +130,10 @@ void main()
 }
 ```
 
-### Fragment Shader (Light)
+ <br>
+
+
+### <ins>Fragment Shader (Light)</ins>
 Handles the dynamic lighting calculations and texture mapping.
 
 ```glsl
@@ -167,6 +185,8 @@ void main()
 }
 ```
 
+ <br>
+
 
 ## Directory Structure
 
@@ -192,6 +212,8 @@ Project Root
 │   │   │   ├── Textures         // Stores texture files (`.jpg` or `.png`) HERE.
 ```
 
+ <br>
+
 
 ## How to Run
 
@@ -206,10 +228,18 @@ git clone https://github.com/Pecas-Dev/M.I.C.R.O-Graphics-Engine.git
 
 4. Once the program is running, you can manipulate 3D models and adjust properties like position, scale, rotation, lighting, and textures using the Dear ImGUI UI.
 
+
+ <br>
+ 
+
 ## Controls
 
 - W/A/S/D: Move the light source across the scene.
 - Use Dear ImGUI to adjust model properties, lighting, and textures in real time.
+
+
+ <br>
+
 
 ## Credits
 
