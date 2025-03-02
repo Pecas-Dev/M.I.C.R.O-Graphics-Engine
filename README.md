@@ -6,13 +6,14 @@
 
  <br>
 
---------------------------------
- 
+---
+
 ## Project Description
 
 The **M.I.C.R.O Graphics Engine**, or "My Input Controlled Real-Time Output Graphics Engine," is a custom-built graphics engine developed using OpenGL. It allows real-time manipulation of 3D models and their properties, such as position, rotation, scale, lighting, and textures. The project features a UI built with Dear ImGUI for controlling these parameters interactively, alongside real-time lighting effects. This engine serves as a foundational graphics framework for learning and experimentation, offering a hands-on introduction to core rendering techniques and real-time 3D graphics.
 
---------------------------------
+---
+
 ## Features
 
 - **Model Loading**: Loads 3D models (**.obj** format) and allows real-time manipulation of their properties.
@@ -21,44 +22,42 @@ The **M.I.C.R.O Graphics Engine**, or "My Input Controlled Real-Time Output Grap
 - **UI Controls**: Dear ImGUI interface to modify object transformations (position, rotation, scale) and adjust lighting and texture properties.
 - **Model Loader**: A dedicated button in the UI allows users to load new models dynamically into the scene.
 
---------------------------------
+---
 
- <br>
+<br>
 
---------------------------------
-
-## Loading a New Model
+# Loading a New Model
 
 To load a new model dynamically into the scene, follow these steps:
 
-1. From the Project's Root, browse to **Release -> OGL-P2 -> Assets**. Inside this folder you will find the following folders:
+1. From the Project's Root, browse to **`Release -> Platforms -> (x64 or x86) -> OGL-P2 -> Assets `**. Inside this folder you will find the following folders:
 
-    - Models
-    - Materials
-    - Textures
+   - Models
+   - Materials
+   - Textures
 
 2. Place the necessary files in the correct directories inside Assets:
 
-    - .**obj** files in **Assets/Models/**
+   - .**obj** files in **Assets/Models/**
 
-    - **.mtl** material files in **Assets/Materials/**
+   - **.mtl** material files in **Assets/Materials/**
 
-    - **.jpg** or .png texture files in **Assets/Textures/**
+   - **.jpg** or **.png** texture files in **Assets/Textures/**
 
-3. Once inside the program (Check [How To Run](https://github.com/Pecas-Dev/M.I.C.R.O-Graphics-Engine?tab=readme-ov-file#how-to-run)), click on the **Load New Model button.**
+3. Once inside the program (Check [Installation & Running](https://github.com/Pecas-Dev/M.I.C.R.O-Graphics-Engine?tab=readme-ov-file#installation--running)), click on the **_Load New Model button._**
 
-4. Browse to **Release -> OGL-P2 -> Assets -> Models** and select your **.obj** file.
+4. Browse to **`Release -> Platforms -> (x64 or x86) -> OGL-P2 -> Assets-> Models`** and select your **.obj** file.
 
 5. The engine will automatically attempt to load the associated material and textures.
 
---------------------------------
+<br>
 
- <br>
-
+---
 
 ## Shaders
 
-### <ins>Vertex Shader (Default)</ins>
+### Vertex Shader (Default)
+
 Handles the transformation of 3D coordinates and passes color data for rendering.
 
 ```glsl
@@ -77,10 +76,8 @@ void main()
 }
 ```
 
- <br>
+### Fragment Shader (Default)
 
-
-### <ins>Fragment Shader (Default)</ins>
 Renders color and lighting information onto the object.
 
 ```glsl
@@ -94,10 +91,8 @@ void main()
 
 ```
 
- <br>
+### Vertex Shader (Light)
 
-
-### <ins>Vertex Shader (Light)</ins>
 Handles the transformation of 3D coordinates for the light shader and normal calculations.
 
 ```glsl
@@ -130,10 +125,8 @@ void main()
 }
 ```
 
- <br>
+### Fragment Shader (Light)
 
-
-### <ins>Fragment Shader (Light)</ins>
 Handles the dynamic lighting calculations and texture mapping.
 
 ```glsl
@@ -185,61 +178,99 @@ void main()
 }
 ```
 
- <br>
-
+---
 
 ## Directory Structure
 
-```glsl
+```
 Project Root
-├── Dependencies                 //External libraries like SDL and GLM required for rendering.
-├── OpenGL2
-│   ├── Assets                   // Stores shaders, models, textures, fonts, and materials.
-│   │   │   ├── Models               
-│   │   │   ├── Materials           
-│   │   │   ├── Textures             
-│   │   │   ├── Shaders
-│   │         
-│   ├── Project                  // Contains the source code for the M.I.C.R.O Graphics Engine.
-│   │   ├── include
-│   │   ├── source
-│      
-├── Release                      // Contains the executable for running the graphics engine
-│   ├── OGL-P2                   // Contains the necessary files to run the executable.
-│   │   ├── Assets                   
-│   │   │   ├── Models           // Store `.obj` model files HERE.
-│   │   │   ├── Materials        // Stores `.mtl` material files HERE.
-│   │   │   ├── Textures         // Stores texture files (`.jpg` or `.png`) HERE.
+├── OpenGL2.sln                      // Visual Studio solution file
+├── .gitattributes
+├── .gitignore
+├── bin                              // Binary files
+├── Dependencies                     // External dependencies
+│   ├── SDL
+│   └── GLM
+│
+├── Release                          // Pre-compiled executables
+│   ├── M.I.C.R.O x64.bat            // Run x64 M.I.C.R.O
+│   ├── M.I.C.R.O x86.bat            // Run x86 M.I.C.R.O
+│   └── Platforms
+│       ├── x64                      // 64-bit builds
+│       │   └── OGL-P2               // Contains the necessary files to run the executable.
+│       │       └── Assets
+│       │           ├── Models       // Store `.obj` model files HERE.
+│       │           ├── Materials    // Stores `.mtl` material files HERE.
+│       │           └── Textures     // Stores texture files (`.jpg` or `.png`) HERE.
+│       │
+│       │
+│       │
+│       └── Win32                    // 32-bit builds
+│           └── OGL-P2               // Contains the necessary files to run the executable.
+│               └── Assets
+│                   ├── Models       // Store `.obj` model files HERE.
+│                   ├── Materials    // Stores `.mtl` material files HERE.
+│                   └── Textures     // Stores texture files (`.jpg` or `.png`) HERE.
+│
+└── OpenGL2
+    ├── Assets                       // Stores shaders, models, textures, fonts, and materials.
+    │   ├── Models
+    │   ├── Materials
+    │   ├── Textures
+    │   └── Shaders
+    │
+    └── Project                      // Contains the source code for the M.I.C.R.O Graphics Engine.
+        ├── include
+        └── source
 ```
 
- <br>
+---
 
+<br>
 
-## How to Run
+## Installation & Running
 
-1. Clone the repository:
+<br>
+
+**Clone the repository:**
 
 ```bash
 git clone https://github.com/Pecas-Dev/M.I.C.R.O-Graphics-Engine.git
 ```
-2. Navigate to the Release folder within the project directory. Inside, you will find an executable that allows you to run the app directly.
 
-3. If you prefer to build the project manually, open the solution in Visual Studio, choose the x86 Platform, and build the project.
+### Pre-compiled Executables
 
-4. Once the program is running, you can manipulate 3D models and adjust properties like position, scale, rotation, lighting, and textures using the Dear ImGUI UI.
+The easiest way to run the simulation is using the pre-compiled executables:
 
+1. Navigate to the `Release` folder.
+2. Choose the appropriate version for your system (`x64` or `86`).
+3. Run the `M.I.C.R.O x64.bat` or `M.I.C.R.O x86.bat`or file.
 
- <br>
- 
+### Building from Source
+
+To build the project from source:
+
+1. Open `OpenGL2.sln` in Visual Studio.
+2. Choose your configuration (**Debug/Release**) and platform (**x64/x86**).
+3. Build the solution.
+4. Run the program.
+
+<br>
+
+**Once the program is running:**
+
+- **You can manipulate 3D models and adjust properties like position, scale, rotation, lighting, and textures using the Dear ImGUI UI.**
+
+<br>
+
+---
 
 ## Controls
 
 - W/A/S/D: Move the light source across the scene.
 - Use Dear ImGUI to adjust model properties, lighting, and textures in real time.
 
-
- <br>
-
+<br>
 
 ## Credits
 
