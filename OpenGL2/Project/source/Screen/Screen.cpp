@@ -2,7 +2,7 @@
 
 #include <imgui.h>
 #include <glad/gl.h>
-#include <imgui_impl_sdl.h>
+#include <imgui_impl_sdl2.h>
 #include <imgui_impl_opengl3.h>
 
 #include <iostream>
@@ -41,13 +41,15 @@ bool Screen::Initialize()
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
 
-	window = SDL_CreateWindow("M.I.C.R.O Graphics Engine", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1275, 650, SDL_WINDOW_OPENGL);
+	window = SDL_CreateWindow("M.I.C.R.O Graphics Engine", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1280, 720, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
 
 	if (!window)
 	{
 		std::cout << "Error creating SDL window." << std::endl;
 		return false;
 	}
+
+	SDL_SetWindowMinimumSize(window, 960, 600);
 
 	context = SDL_GL_CreateContext(window);
 
@@ -68,8 +70,11 @@ bool Screen::Initialize()
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	ImGui::CreateContext();
-	if (!ImGui_ImplOpenGL3_Init("#version 460")) { std::cout << "Error initializing ImGui-OpenGL!" << std::endl; return false; }
+
+	ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+
 	if (!ImGui_ImplSDL2_InitForOpenGL(window, context)) { std::cout << "Error initializing ImGui-SDL2!" << std::endl; return false; }
+	if (!ImGui_ImplOpenGL3_Init("#version 460")) { std::cout << "Error initializing ImGui-OpenGL!" << std::endl; return false; }
 
 	return true;
 }
@@ -77,6 +82,11 @@ bool Screen::Initialize()
 void Screen::ClearScreen()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+void Screen::GetDrawableSize(int& width, int& height)
+{
+	SDL_GL_GetDrawableSize(window, &width, &height);
 }
 
 void Screen::Present()

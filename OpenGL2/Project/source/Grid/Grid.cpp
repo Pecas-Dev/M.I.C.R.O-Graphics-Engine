@@ -100,17 +100,6 @@ void Grid::Render(const Shader& shader)
 	m_buffer.Render(Buffer::DrawType::DwT_Lines);
 }
 
-void Grid::MoveGrid(Grid& grid)
-{
-	if (Input::Instance()->IsLeftButtonClicked())
-	{
-		auto rotation = grid.GetTransform().GetRotation();
-		rotation.x += Input::Instance()->GetMouseMotionY();
-		rotation.y += Input::Instance()->GetMouseMotionX();
-		grid.GetTransform().SetRotation(rotation.x, rotation.y, rotation.z);
-	}
-}
-
 Transform& Grid::GetTransform()
 {
 	return m_transform;

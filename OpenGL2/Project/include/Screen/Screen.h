@@ -13,6 +13,8 @@ public:
 	void Present();
 	void Shutdown();
 
+	void GetDrawableSize(int& width, int& height);
+
 private:
 	Screen();
 	Screen(const Screen&);

@@ -21,6 +21,15 @@
     <ClCompile Include="Project\source\Buffer\Buffer.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="Project\source\PostProcess\PostProcess.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Project\source\Environment\Environment.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Project\source\RenderTarget\RenderTarget.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
     <ClCompile Include="Project\source\Camera\Camera.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -60,7 +69,7 @@
     <ClCompile Include="Project\include\vendor\imGUI\imgui_impl_opengl3.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Project\include\vendor\imGUI\imgui_impl_sdl.cpp">
+    <ClCompile Include="Project\include\vendor\imGUI\imgui_impl_sdl2.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Project\include\vendor\glad\src\gl.c">
@@ -96,6 +105,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Project\include\Buffer\Buffer.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\include\PostProcess\PostProcess.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\include\Environment\Environment.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\include\vendor\stb\stb_image.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\include\RenderTarget\RenderTarget.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Project\include\Camera\Camera.h">
@@ -143,7 +164,10 @@
     <ClInclude Include="Project\include\vendor\imGUI\imgui_impl_opengl3.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Project\include\vendor\imGUI\imgui_impl_sdl.h">
+    <ClInclude Include="Project\include\vendor\imGUI\imgui_impl_opengl3_loader.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\include\vendor\imGUI\imgui_impl_sdl2.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Project\include\vendor\glad\include\glad\gl.h">
@@ -181,3 +205,6 @@
     </ClInclude>
   </ItemGroup>
 </Project>
+
+
+

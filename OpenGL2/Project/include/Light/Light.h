@@ -14,30 +14,33 @@ public:
 	Light();
 	~Light();
 
-	void MoveUp();
-	void MoveDown();
-	void MoveLeft();
-	void MoveRight();
-	void MoveForward();
-	void MoveBackward();
-
-	void MoveLight(Light& light);
-
 	void Update() {}
 	void Render(const Shader& shader);
 	void SendToShader(const Shader& shader);
-	void SetSpeed(GLfloat speed);
-	
+
+	Transform& GetTransform();
+
+	glm::vec3& GetAmbient();
+	glm::vec3& GetDiffuse();
+	glm::vec3& GetSpecular();
+
+	GLfloat& GetIntensity();
+	GLfloat& GetLinearAttenuation();
+	GLfloat& GetQuadraticAttenuation();
+
 private:
 	Buffer m_buffer;
 	Transform m_transform;
 
-	GLfloat m_speed;
-
 	glm::mat4 m_model;
-	
+
 	glm::vec3 m_ambient;
 	glm::vec3 m_diffuse;
 	glm::vec3 m_specular;
+
+	GLfloat m_intensity;
+	GLfloat m_constantAttenuation;
+	GLfloat m_linearAttenuation;
+	GLfloat m_quadraticAttenuation;
 };
 

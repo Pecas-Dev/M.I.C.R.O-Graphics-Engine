@@ -2,6 +2,8 @@
 
 #include <SDL.h>
 
+#include <string>
+
 
 class Input
 {
@@ -15,9 +17,23 @@ public:
 	char GetKeyUp();
 	char GetKeyDown();
 
+	SDL_Keycode GetKeyTapped();
+
+	bool IsCtrlDown();
+	bool IsShiftDown();
+	bool IsAltDown();
+
+	bool IsKeyHeld(SDL_Scancode scancode);
+
+	const std::string& GetDroppedFile();
+
 	bool IsLeftButtonClicked();
 	bool IsRightButtonClicked();
 	bool IsMiddleButtonClicked();
+
+	bool WasLeftButtonPressed();
+	bool WasRightButtonPressed();
+	bool WasMiddleButtonPressed();
 
 	int GetMousePositionX();
 	int GetMousePositionY();
@@ -27,7 +43,7 @@ public:
 
 	int GetMouseWheel();
 
-	void Update();	
+	void Update();
 
 private:
 	Input();
@@ -45,6 +61,10 @@ private:
 	bool m_isRightButtonClicked;
 	bool m_isMiddleButtonClicked;
 
+	bool m_wasLeftButtonPressed;
+	bool m_wasRightButtonPressed;
+	bool m_wasMiddleButtonPressed;
+
 	int m_mouseMotionX;
 	int m_mouseMotionY;
 
@@ -52,5 +72,15 @@ private:
 	int m_mousePositionY;
 
 	int m_mouseWheel;
+
+	SDL_Keycode m_keyTapped;
+
+	bool m_isCtrlDown;
+	bool m_isShiftDown;
+	bool m_isAltDown;
+
+	const Uint8* m_keyboardState;
+
+	std::string m_droppedFile;
 };
 

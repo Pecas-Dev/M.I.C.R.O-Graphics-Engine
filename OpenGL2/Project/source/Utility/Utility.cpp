@@ -1,6 +1,7 @@
 #include <Utility/Utility.h>
 
 #include <algorithm>
+#include <iostream>
 
 
 std::deque<std::string> Utility::m_messages;
@@ -27,6 +28,8 @@ void Utility::ParseString(std::string& string, std::vector<std::string>& subStri
 void Utility::AddMessage(const std::string& message)
 {
 	m_messages.push_front(message);
+
+	std::cout << message << std::endl;
 }
 
 std::string Utility::ReadMessage()

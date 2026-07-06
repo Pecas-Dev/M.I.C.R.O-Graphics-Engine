@@ -15,7 +15,6 @@ public:
 
 	void Update() {}
 	void Render(const Shader& shader);
-	void MoveGrid(Grid& grid);
 
 	Transform& GetTransform();
 

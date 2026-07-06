@@ -7,9 +7,16 @@
 
 Light::Light()
 {
-	m_ambient = glm::vec3(1.0f);
+	m_ambient = glm::vec3(0.15f);
 	m_diffuse = glm::vec3(1.0f);
 	m_specular = glm::vec3(1.0f);
+
+	m_intensity = 3.5f;
+
+	m_constantAttenuation = 1.0f;
+	m_linearAttenuation = 0.09f;
+	m_quadraticAttenuation = 0.032f;
+
 	m_transform.SetPosition(0.0f, 5.0f, 0.0f);
 
 	GLfloat vertices[] = { 0.0f, 0.0f, 0.0f };
@@ -24,54 +31,6 @@ Light::Light()
 Light::~Light()
 {
 	m_buffer.DestroyBuffer();
-}
-
-void Light::MoveUp()
-{
-	auto position = m_transform.GetPosition();
-	position.y += m_speed;
-	m_transform.SetPosition(position.x, position.y, position.z);
-}
-
-void Light::MoveDown()
-{
-	auto position = m_transform.GetPosition();
-	position.y -= m_speed;
-	m_transform.SetPosition(position.x, position.y, position.z);
-
-}
-
-void Light::MoveLeft()
-{
-	auto position = m_transform.GetPosition();
-	position.x -= m_speed;
-	m_transform.SetPosition(position.x, position.y, position.z);
-}
-
-void Light::MoveRight()
-{
-	auto position = m_transform.GetPosition();
-	position.x += m_speed;
-	m_transform.SetPosition(position.x, position.y, position.z);
-}
-
-void Light::MoveForward()
-{
-	auto position = m_transform.GetPosition();
-	position.z -= m_speed;
-	m_transform.SetPosition(position.x, position.y, position.z);
-}
-
-void Light::MoveBackward()
-{
-	auto position = m_transform.GetPosition();
-	position.z += m_speed;
-	m_transform.SetPosition(position.x, position.y, position.z);
-}
-
-void Light::SetSpeed(GLfloat speed)
-{
-	m_speed = speed;
 }
 
 void Light::Render(const Shader& shader)
@@ -99,40 +58,43 @@ void Light::SendToShader(const Shader& shader)
 	shader.SendUniformData("light.ambient", m_ambient.r, m_ambient.g, m_ambient.b);
 	shader.SendUniformData("light.diffuse", m_diffuse.r, m_diffuse.g, m_diffuse.b);
 	shader.SendUniformData("light.specular", m_specular.r, m_specular.g, m_specular.b);
+	shader.SendUniformData("light.intensity", m_intensity);
+	shader.SendUniformData("light.constantAtt", m_constantAttenuation);
+	shader.SendUniformData("light.linearAtt", m_linearAttenuation);
+	shader.SendUniformData("light.quadraticAtt", m_quadraticAttenuation);
 }
 
-void Light::MoveLight(Light& light)
+Transform& Light::GetTransform()
 {
-	if (Input::Instance()->IsKeyPressed())
-	{
-		if (Input::Instance()->GetKeyDown() == 'w')
-		{
-			light.MoveForward();
-		}
+	return m_transform;
+}
 
-		else if (Input::Instance()->GetKeyDown() == 's')
-		{
-			light.MoveBackward();
-		}
+glm::vec3& Light::GetAmbient()
+{
+	return m_ambient;
+}
 
-		else if (Input::Instance()->GetKeyDown() == 'a')
-		{
-			light.MoveLeft();
-		}
+glm::vec3& Light::GetDiffuse()
+{
+	return m_diffuse;
+}
 
-		else if (Input::Instance()->GetKeyDown() == 'd')
-		{
-			light.MoveRight();
-		}
+glm::vec3& Light::GetSpecular()
+{
+	return m_specular;
+}
 
-		else if (Input::Instance()->GetKeyDown() == (char)82)
-		{
-			light.MoveUp();
-		}
+GLfloat& Light::GetIntensity()
+{
+	return m_intensity;
+}
 
-		else if (Input::Instance()->GetKeyDown() == (char)81)
-		{
-			light.MoveDown();
-		}
-	}
+GLfloat& Light::GetLinearAttenuation()
+{
+	return m_linearAttenuation;
+}
+
+GLfloat& Light::GetQuadraticAttenuation()
+{
+	return m_quadraticAttenuation;
 }

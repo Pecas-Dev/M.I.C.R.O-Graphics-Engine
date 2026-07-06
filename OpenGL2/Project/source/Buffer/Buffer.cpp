@@ -13,6 +13,7 @@ Buffer::Buffer()
 	m_colorVBO = 0;
 	m_textureVBO = 0;
 	m_normalVBO = 0;
+	m_tangentVBO = 0;
 
 	m_totalVertices = 0;
 }
@@ -23,6 +24,7 @@ void Buffer::CreateBuffer(GLuint totalVertices, bool hasEBO)
 	glGenBuffers(1, &m_colorVBO);
 	glGenBuffers(1, &m_textureVBO);
 	glGenBuffers(1, &m_normalVBO);
+	glGenBuffers(1, &m_tangentVBO);
 	glGenVertexArrays(1, &m_VAO);
 
 	if (hasEBO)
@@ -49,6 +51,10 @@ void Buffer::FillVBO(VBOType vboType, const void* data, GLsizeiptr bufferSize, F
 	else if(vboType == VBOType::VBOT_TextureBuffer)
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, m_textureVBO);
+	}
+	else if (vboType == VBOType::VBOT_TangentBuffer)
+	{
+		glBindBuffer(GL_ARRAY_BUFFER, m_tangentVBO);
 	}
 	else
 	{
@@ -80,6 +86,10 @@ void Buffer::LinkVBO(const Shader& shader, const std::string& attribute, VBOType
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, m_textureVBO);
 	}
+	else if (vboType == VBOType::VBOT_TangentBuffer)
+	{
+		glBindBuffer(GL_ARRAY_BUFFER, m_tangentVBO);
+	}
 	else
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, m_normalVBO);
@@ -106,6 +116,10 @@ void Buffer::AppendVBO(VBOType vboType, const void* data, GLsizeiptr bufferSize,
 	else if (vboType == VBOType::VBOT_TextureBuffer)
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, m_textureVBO);
+	}
+	else if (vboType == VBOType::VBOT_TangentBuffer)
+	{
+		glBindBuffer(GL_ARRAY_BUFFER, m_tangentVBO);
 	}
 	else
 	{
@@ -152,6 +166,7 @@ void Buffer::DestroyBuffer()
 	glDeleteBuffers(1, &m_colorVBO);
 	glDeleteBuffers(1, &m_textureVBO);
 	glDeleteBuffers(1, &m_normalVBO);
+	glDeleteBuffers(1, &m_tangentVBO);
 	glDeleteVertexArrays(1, &m_VAO);
 	glDeleteBuffers(1, &m_EBO);
 }

@@ -11,17 +11,16 @@ Object::Object(Grid* parentGrid)
 
 void Object::Render(const Shader& shader)
 {
-	m_normal = glm::inverse(glm::mat3(m_transform.GetMatrix()));
+	glm::mat4 model = m_transform.GetMatrix();
 
 	if (m_parentGrid)
 	{
-		shader.SendUniformData("model", m_parentGrid->GetTransform().GetMatrix() * m_transform.GetMatrix());
-	}
-	else
-	{
-		shader.SendUniformData("model", m_transform.GetMatrix());
+		model = m_parentGrid->GetTransform().GetMatrix() * model;
 	}
 
+	m_normal = glm::transpose(glm::inverse(glm::mat3(model)));
+
+	shader.SendUniformData("model", model);
 	shader.SendUniformData("normal", m_normal);
 }
 

@@ -12,7 +12,7 @@ class Buffer
 public:
 	Buffer();
 
-	enum class VBOType { VBOT_VertexBuffer, VBOT_ColorBuffer, VBOT_TextureBuffer, VBOT_NormalBuffer };
+	enum class VBOType { VBOT_VertexBuffer, VBOT_ColorBuffer, VBOT_TextureBuffer, VBOT_NormalBuffer, VBOT_TangentBuffer };
 	enum class ComponentType { CT_XY = 2, CT_XYZ = 3, CT_RGB = 3, CT_RGBA = 4, CT_UV = 2 };
 	enum class FillType { FT_Single = GL_STATIC_DRAW, FT_Multiple = GL_DYNAMIC_DRAW };
 	enum class DataType { DT_Int = GL_INT, DT_Float = GL_FLOAT, DT_UnsignedInt = GL_UNSIGNED_INT };
@@ -38,6 +38,7 @@ private:
 	GLuint m_colorVBO;
 	GLuint m_textureVBO;
 	GLuint m_normalVBO;
+	GLuint m_tangentVBO;
 
 	GLuint m_totalVertices;
 };
